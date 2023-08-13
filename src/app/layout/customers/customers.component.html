@@ -1,0 +1,197 @@
+<app-sidebar></app-sidebar>
+
+
+<div class="header-container"> </div>
+
+<div style="margin-left: 311px; margin-top: 50px;">
+  <div class="user-btn"> <button type="button" class="btn btn-primary" (click)="open(content,false)">Create Customers</button>
+  </div>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink><div class="icon-sizing"><i  class="bi bi-card-text"></i></div></a>
+      <ng-template ngbNavContent>
+        <!-- <p>These navs will always stay in DOM and have no roles</p> -->
+        <div class="card-view-container">
+          <div class="cards text-center" *ngFor="let customers of customerList"> 
+            <div class="card-profile"></div>
+            <label class="name fw-semibold fs-7 ">{{customers.name}}</label>
+            <label class="user-id">{{customers.email}}</label>
+            <label class="company-id">{{customers.status}}</label>
+            <label class="company-id">{{customers.phoneNumber}}</label>
+            <label class="company-id" style="text-transform: capitalize;" >Assigned staff:{{customers.assignUsername}}</label>
+            <label class="company-id">{{customers.Place}}</label>
+            <label class="company-name">Company ID:{{customers.companyID}}</label>
+            <label class="company-id">ID:{{customers.customerID}}</label>
+            
+            <label class="edit-btn"> <div class="edit">
+              <div style="margin-top: 11px;"  (click)="editByIDRecords(customers);open(content,true)">Edit</div>
+            </div>
+            <div class="delete" (click)="deleteByID(customers._id)"><div style="margin-top: 11px;">Delete</div>
+          </div>
+        </label>
+          </div>
+        </div>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink><div class="icon-sizing"><i  class="bi bi-grid-3x3"></i></div></a>
+      <ng-template ngbNavContent>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+             <th scope="col">Customer ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Status</th>
+              <th scope="col">Place</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Assigned staff</th>
+              <th scope="col">Company ID</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customers of customerList">
+              <td>{{customers.customerID}}</td>
+              <td>{{customers.name}}</td>
+              <td>{{customers.email}}</td>
+              <td >{{customers.status}}</td>
+              <td>{{customers.Place}}</td>
+              <td>{{customers.phoneNumber}}</td>
+              <td style="text-transform: capitalize;" >{{customers.assignUsername}}</td>
+              <td>{{customers.companyID}}</td>
+              <td><i class="bi bi-trash" style="cursor: pointer;" (click)="deleteByID(customers._id)" ></i> &nbsp;&nbsp;<i class="bi bi-pencil-square"  style="cursor: pointer;" (click)="editByIDRecords(customers);open(content,true)"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </li>
+  </ul>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+<!-- 
+<div class="box-sizing">
+    <div class="header-container">
+        <div class="title">CRM</div>
+        <div class="userinfo">
+            <p style="margin-bottom: 0px;">{{name}}</p>
+            <p>{{role}}</p>
+        </div>
+    </div>
+    <div class="user-btn">
+        <button type="button" class="btn btn-primary" (click)="open(content,false)">Create Customers</button>
+
+        <ng-template #content let-modal >
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">New company users</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="newCustomerDetails">
+                    <div class="mb-3 form-header">
+                       <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                       <input type="text" formControlName="name" >
+                       <div class="mt-3">
+                        <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
+                        <input type="text" formControlName="email">
+                       </div>
+                       <div class="mt-3">
+                        <label>Status</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <select formControlName="status">
+                        <option selected value="Lead">Lead</option>
+                        <option value="Customer Visit" >Customer visit</option>
+                        <option value="Service">Service</option>
+                        <option value="Sale">Sale</option>
+                      </select>
+                       </div>
+                       <div class="mt-3">
+                        <label>Place &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" formControlName="Place">
+                       </div>
+                       <div class="mt-3">
+                        <label>Phone Number &nbsp;</label>
+                        <input type="text" formControlName="phoneNumber">
+                       </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+        </ng-template>
+    
+    </div>
+     <table class="table table-striped">
+      <thead>
+        <tr>
+         <th scope="col">Customer ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Status</th>
+          <th scope="col">Place</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Company ID</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customers of customerList">
+          <td>{{customers.customerID}}</td>
+          <td>{{customers.name}}</td>
+          <td>{{customers.email}}</td>
+          <td >{{customers.status}}</td>
+          <td>{{customers.Place}}</td>
+          <td>{{customers.phoneNumber}}</td>
+          <td>{{customers.companyID}}</td>
+          <td><i class="bi bi-trash" style="cursor: pointer;" (click)="deleteByID(customers._id)" ></i> &nbsp;&nbsp;<i class="bi bi-pencil-square"  style="cursor: pointer;" (click)="editByIDRecords(customers);open(content,true)"></i></td>
+        </tr>
+      </tbody>
+    </table> -->
+
+    <ng-template #content let-modal >
+      <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">New company Customers</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="newCustomerDetails">
+              <div class="mb-3 form-header">
+                 <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                 <input type="text" formControlName="name" >
+                 <div class="mt-3">
+                  <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
+                  <input type="text" formControlName="email">
+                 </div>
+                 <div class="mt-3">
+                  <label>Status</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select formControlName="status">
+                  <option selected value="Lead">Lead</option>
+                  <option value="Customer Visit" >Customer visit</option>
+                  <option value="Service">Service</option>
+                  <option value="Sale">Sale</option>
+                </select>
+                 </div>
+                 <div class="mt-3">
+                  <label>Assign staff</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select formControlName="AssignUsername" style="text-transform: capitalize;" (change)="assignUsers($event.target)">
+                  <option  [value]="" >None</option>
+                  <option  [value]="staff.name" *ngFor="let staff of userList">{{staff.name}}</option>
+                  
+                </select>
+                 </div>
+                 <div class="mt-3">
+                  <label>Place &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <input type="text" formControlName="Place">
+                 </div>
+                 <div class="mt-3">
+                  <label>Phone Number &nbsp;</label>
+                  <input type="text" formControlName="phoneNumber">
+                 </div>
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div>
+  </ng-template>

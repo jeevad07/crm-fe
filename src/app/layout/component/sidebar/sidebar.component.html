@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+    <title>Admin Dashboard Panel</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+           
+            </div>
+
+            <span class="logo_name" style="color: #0b3cc1;"></span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li *ngIf="roleID =='3'"><a href="javascript:void(0);">
+                        <i class="uil uil-estate"></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li *ngIf="roleID =='2'"><a href="javascript:void(0);">
+                        <i class="uil uil-estate"></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li *ngIf="roleID =='1'" (click)="navigateTocadmin()"><a href="javascript:void(0);">
+                        <i class="uil uil-estate"></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li *ngIf="roleID =='1'" (click)="navigateTOcustomer()"><a href="javascript:void(0);">
+                    <i class="uil uil-chart"></i>
+                        <span class="link-name">Customer</span>
+                    </a>
+                </li>
+          
+            </ul>
+
+            <ul class="logout-mode" (click)="logout()">
+                <li><a href="javascript:void(0);">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Logout</span>
+                    </a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+</body>
+
+</html> -->
+
+<input type="checkbox" id="menu-toggle">
+<div class="sidebar">
+ <div class="brand">
+   <span class="lab la-affiliatetheme"></span>
+   <h1><b>CRM</b></h1>
+ </div>
+ <div class="sidemenu">
+   <div class="sideuser">
+     <div class="side-img" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfsTQFb0kp8I5e3JYPbVszsdPRsHBp3MM0snd7GltdQQ&s)"></div>
+     <div class="user">
+       <small>{{name}}</small>
+       <p>{{role}}</p>
+     </div>
+   </div>
+   <ul>
+     <li *ngIf="roleID =='3'" >
+       <a href="javascript:void(0);" class="active">
+         <span class="las la-home"></span>
+         <span>Dashboard</span>
+
+       </a>
+     </li>
+     <li *ngIf="roleID =='2'">
+        <a href="javascript:void(0);" class="active">
+          <span class="las la-home"></span>
+          <span>Dashboard</span>
+ 
+        </a>
+      </li>
+      <li  *ngIf="roleID =='1'" (click)="navigateTocadmin()">
+        <a href="javascript:void(0);"  [ngClass]="{'active': isHighlighted_dash}">
+          <span class="las la-home"></span>
+          <span>Dashboard</span>
+ 
+        </a>
+      </li>
+     <li  *ngIf="roleID =='1'" (click)="navigateTOcustomer()">
+       <a href="javascript:void(0);" [ngClass]="{'active': isHighlighted_Cust}">
+         <span class="las la-balance-scale"></span>
+         <span>Customer</span>
+
+       </a>
+     </li>
+     <!-- <li>
+       <a href="javascript:void(0);">
+         <span class="las la-chart-pie"></span>
+         <span>Analytics</span>
+
+       </a>
+     </li>
+     <li>
+       <a href="javascript:void(0);">
+         <span class="las la-calendar"></span>
+         <span>Calendar</span>
+
+       </a>
+     </li>
+     <li>
+       <a href="javascript:void(0);">
+         <span class="las la-users"></span>
+         <span>Contacts</span>
+
+       </a>
+     </li>
+     <li>
+       <a href="javascript:void(0);">
+         <span class="las la-shopping-cart"></span>
+         <span>Ecommerce</span>
+
+       </a>
+     </li>
+     <li>
+       <a href="javascript:void(0);">
+         <span class="las la-envelope"></span>
+         <span>Mailbox</span>
+
+       </a>
+     </li>
+     <li>
+       <a href="javascript:void(0);">
+         <span class="las la-check-circle"></span>
+         <span>Tasks</span>
+
+       </a>
+     </li>
+     <li>
+       <a href="javascript:void(0);">
+         <span class="las la-lock"></span>
+         <span>Authentication</span>
+
+       </a>
+     </li>-->
+     <!-- <li>
+       <a href="">
+         <span class="las la-file-invoice-dollar"></span>
+         <span>Pricing</span>
+
+       </a>
+     </li>  -->
+   </ul>
+   <div style="position: absolute;"><div class="logout-feature "><li >
+    <a  style="width:264px;" href="javascript:void(0);" class="active" (click)="logout()">
+      <span class="las la-home"></span>
+      <span>Logout</span>
+
+    </a>
+  </li></div> </div>
+ </div>
+</div>

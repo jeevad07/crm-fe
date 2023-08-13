@@ -1,0 +1,30 @@
+.logout-features
+{
+    height: 53px;
+    width:150px;
+    /* background-color: pink; */
+}
+.name-container
+{
+    /* width: 100px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    text-transform: capitalize;
+}
+.navbar-container{
+    width: 100%;
+    height: 53px;
+    background-color: #9dafaf;
+}
+.dashboard{
+    position: relative;
+    left: 250px;
+    background-color: var(--panel-color);
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    padding: 0px 14px;
+    transition: var(--tran-05);
+}

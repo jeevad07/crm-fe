@@ -1,0 +1,152 @@
+
+.header-container
+{
+    width: 100%;
+    height: 70px;
+    /* background-color: #9f9f9f; */
+    display: flex;
+}
+
+.title{
+    width:50%;
+    height:100%;
+    font-size: 22px;
+    font-weight: 600;
+    color: gray;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.userinfo{
+    width: 50%;
+    height: 100%;
+    margin-top: 10px;
+    font-weight: 600;
+    color: gray;
+    text-align-last: end;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+
+.user-btn{
+    text-align-last: end;
+    padding: 20px;
+}
+
+.form-header input{
+    width: 73%;
+}
+.form-header select{
+    width: 73%;
+}
+
+.truncate-cell {
+    white-space: nowrap;
+    overflow: hidden;       
+    text-overflow: ellipsis; 
+   max-width: 70px;
+  }
+
+  
+  .icon-sizing{
+    font-size: 25px;
+  }
+  .card-view-container{
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+
+  }
+
+  .cards{
+    margin-top: 30px;
+    width: 90%;
+    height: 420px;
+    background-color: #e7e7e7;
+    box-shadow: 1px 1px 1px #0000001c;
+    border-radius: 5px;
+    padding: 10px;
+    display: block !important;
+  }
+   
+
+
+  .card-profile{
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 50%;
+    background-image: url(https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg?w=2000);
+  }
+
+  .text-center{
+    text-align: center!important;
+  }
+
+  .name{
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  .user-id{
+    margin-top: 6px;
+    font-weight: 600;
+    color: #a0a0a0;
+    width: 100%;
+  }
+
+  .company-name
+  {
+    margin-top: 6px;
+    width: 100%;
+    font-weight: 600;
+    color: #a0a0a0;
+  }
+
+  .company-id{
+    margin-top: 6px;
+    width: 100%;
+    font-weight: 600;
+    color: #a0a0a0;
+  }
+
+  .edit-btn{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+    margin-top: 30px;
+    display: flex;
+   }
+  .edit{
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 48%;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .delete{
+    background-color: black;
+    color: white;
+    width: 48%;
+    margin-left: 4%;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .edit:hover{
+    background-color: #a0a0a0;
+    color: black;
+  }
+
+  .delete:hover{
+    background-color: #a0a0a0;
+    color: black;
+  }
+
+  

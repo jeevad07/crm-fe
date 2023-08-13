@@ -1,0 +1,155 @@
+<app-sidebar></app-sidebar>
+<div class="header-container"> </div>
+
+<div style="margin-left: 311px; margin-top: 50px;">
+  <div class="user-btn"> <button type="button" class="btn btn-primary" (click)="open(content,false)">Create Admin</button></div>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink><div class="icon-sizing"><i  class="bi bi-card-text"></i></div></a>
+      <ng-template ngbNavContent>
+        <!-- <p>These navs will always stay in DOM and have no roles</p> -->
+        <div class="card-view-container">
+          <div class="cards text-center" *ngFor="let users of adminDetails"> 
+            <div class="card-profile"></div>
+            <label class="name fw-semibold fs-7 ">{{users.name}}</label>
+            <label class="user-id">{{users.email}}</label>
+            <label class="company-name">{{users.companyname}}</label>
+            <label class="company-id">ID:{{users.companyID}}</label>
+            <label class="edit-btn"> <div class="edit">
+              <div style="margin-top: 11px;" (click)="editByIDRecords(users);open(content,true)">Edit</div>
+            </div>
+            <div class="delete" (click)="deleteByID(users._id)"><div style="margin-top: 11px;">Delete</div>
+          </div>
+        </label>
+          </div>
+        </div>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink><div class="icon-sizing"><i  class="bi bi-grid-3x3"></i></div></a>
+      <ng-template ngbNavContent>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Company name</th>
+              <th scope="col">Company ID</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let users of adminDetails">
+              <td>{{users.name}}</td>
+              <td>{{users.email}}</td>
+              <td class="truncate-cell">{{users.password}}</td>
+              <td>{{users.companyname}}</td>
+              <td>{{users.companyID}}</td>
+              <td><i class="bi bi-trash" style="cursor: pointer;" (click)="deleteByID(users._id)"></i> &nbsp;&nbsp;<i class="bi bi-pencil-square"  style="cursor: pointer;" (click)="editByIDRecords(users);open(content,true)"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </li>
+  </ul>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+
+ <!-- </div> -->
+<!-- 
+<div class="box-sizing">
+    <div class="header-container">
+        <div class="title">CRM</div>
+        <div class="userinfo">
+            <p style="margin-bottom: 0px;">Jeeva</p>
+            <p>G admin</p>
+        </div>
+    </div>
+    <div class="user-btn">
+        <button type="button" class="btn btn-primary" (click)="open(content,false)">Create Admin</button>
+
+        <ng-template #content let-modal >
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">New company admin</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="newAdminDetails">
+                    <div class="mb-3 form-header">
+                       <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                       <input type="text" formControlName="name" >
+                       <div class="mt-3">
+                        <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
+                        <input type="text" formControlName="email">
+                       </div>
+                       <div class="mt-3">
+                        <label>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" formControlName="password">
+                       </div>
+                       <div class="mt-3">
+                        <label>Company name &nbsp;</label>
+                        <input type="text" formControlName="companyname">
+                       </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+        </ng-template>
+    
+    </div>
+     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Company name</th>
+          <th scope="col">Company ID</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let users of adminDetails">
+          <td>{{users.name}}</td>
+          <td>{{users.email}}</td>
+          <td class="truncate-cell">{{users.password}}</td>
+          <td>{{users.companyname}}</td>
+          <td>{{users.companyID}}</td>
+          <td><i class="bi bi-trash" style="cursor: pointer;" (click)="deleteByID(users._id)"></i> &nbsp;&nbsp;<i class="bi bi-pencil-square"  style="cursor: pointer;" (click)="editByIDRecords(users);open(content,true)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+   -->
+   <ng-template #content let-modal >
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">New company admin</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="newAdminDetails">
+            <div class="mb-3 form-header">
+               <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+               <input type="text" formControlName="name" >
+               <div class="mt-3">
+                <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
+                <input type="text" formControlName="email">
+               </div>
+               <div class="mt-3">
+                <label>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" formControlName="password">
+               </div>
+               <div class="mt-3">
+                <label>Company name &nbsp;</label>
+                <input type="text" formControlName="companyname">
+               </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
